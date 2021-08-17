@@ -68,6 +68,9 @@
                                                 <li class="menu-item" >
                                                     <a title="products" href="{{route('admin.products')}}">Products</a>
                                                 </li>
+                                                <li class="menu-item" >
+                                                    <a title="products" href="{{route('admin.homesliders')}}">Sliders</a>
+                                                </li>
 
                                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                     @csrf
