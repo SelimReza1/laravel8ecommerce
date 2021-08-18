@@ -8,6 +8,7 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
+use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\CartComponent;
@@ -46,7 +47,7 @@ Route::get('/search',SearchComponent::class)->name('product.search');
 //    return view('dashboard');
 //})->name('dashboard');
 
-//For user or customer
+//For admin
 Route::middleware(['auth:sanctum','verified','authadmin'])->group(function (){
 Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
 Route::get('admin/categories',AdminCategoryComponent::class)->name('admin.categories');
@@ -59,9 +60,11 @@ Route::get('admin/product/edit/{product_slug}',AdminEditProductComponent::class)
 Route::get('admin/sliders',AdminHomeSliderComponent::class)->name('admin.homesliders');
 Route::get('admin/slider/add',AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
 Route::get('admin/slider/edit/{slider_id}',AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
+
+Route::get('/admin/home-categories', AdminHomeCategoryComponent::class)->name('admin.homecategories');
 });
 
-//For admin
+//For user or customer
 Route::middleware(['auth:sanctum','verified'])->group(function (){
 Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
 });
