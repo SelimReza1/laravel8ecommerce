@@ -78,6 +78,10 @@
                                                     <a title="Manage Home Categories" href="{{route('admin.homecategories')}}">Manage Home Categories</a>
                                                 </li>
 
+                                                <li class="menu-item" >
+                                                    <a title="All Coupons" href="{{route('admin.coupons')}}">All Coupons</a>
+                                                </li>
+
                                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <li class="menu-item">
