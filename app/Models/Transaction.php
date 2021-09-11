@@ -12,6 +12,6 @@ class Transaction extends Model
     protected $table="transactions";
 
     public function transaction(){
-        $this->belongsTo(Transaction::class);
+        return $this->belongsTo(Transaction::class);
     }
 }

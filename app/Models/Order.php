@@ -12,19 +12,19 @@ class Order extends Model
     protected $table = "orders";
 
     public function users(){
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function orderItems(){
-        $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class);
     }
 
     public function shipping(){
-        $this->hasOne(Shipping::class);
+        return $this->hasOne(Shipping::class);
     }
 
     public function transaction(){
-        $this->hasOne(Transaction::class);
+        return $this->hasOne(Transaction::class);
     }
 
 

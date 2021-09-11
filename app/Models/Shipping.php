@@ -12,6 +12,6 @@ class Shipping extends Model
     protected $table="shippings";
 
     public function shipping(){
-        $this->belongsTo(Shipping::class);
+        return $this->belongsTo(Shipping::class);
     }
 }
