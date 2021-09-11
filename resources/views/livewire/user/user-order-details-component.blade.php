@@ -1,17 +1,45 @@
 <div>
     <div class="container" style="margin-top: 20px">
         <div class="row">
+            @if(Session::has('cacel_order'))
+                <div class="alert alert-success" role="alert">{{Session::get('cancel_order')}}</div>
+            @endif
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="col-md-6">
+                        Order Details
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{{route('user.orders')}}" class="btn btn-success pull-right">My Orders</a>
+                        @if($order->status == 'ordered')
+                        <a href="#" wire:click.prevent="cancelOrder" class="btn btn-warning pull-right">Cancel Order</a>
+                        @endif
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <th>Order Id</th>
+                        <td>{{$order->id}}</td>
+                        <th>Order Date</th>
+                        <td>{{$order->created_at}}</td>
+                        <th>Order Status</th>
+                        <td>{{$order->status}}</td>
+                        @if($order->status = 'delivered')
+                            <th>Delivered Date</th>
+                            <td>{{$order->delivered}}</td>
+                            @elseif($oder->status = 'canceled')
+                            <th>Cancilation Date</th>
+                            <td>{{$order->canceled}}</td>
+                        @endif
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
-                                Ordered Items
-                            </div>
-                            <div class="col-md-6">
-                                <a href="{{route('user.orders')}}" class="btn btn-success pull-right">My Orders</a>
-                            </div>
-                        </div>
+                       Ordered Item
                     </div>
                     <div class="panel-body">
                         <div class="wrap-iten-in-cart">
