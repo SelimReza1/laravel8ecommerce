@@ -96,21 +96,24 @@
                                         </li>
 
                                     @else
-                                                    <li class="menu-item menu-item-has-children parent" >
-                                                        <a title="Dollar (USD)" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                                        <ul class="submenu curency" >
-                                                            <li class="menu-item" >
-                                                                <a title="Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
+                                    <li class="menu-item menu-item-has-children parent" >
+                                        <a title="Dollar (USD)" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                        <ul class="submenu curency" >
+                                            <li class="menu-item" >
+                                                <a title="Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
+                                            </li>
+                                            <li class="menu-item" >
+                                                <a title="My Orders" href="{{route('user.orders')}}">My Orders</a>
+                                            </li>
+                                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <li class="menu-item">
+                                                    <a href="#" id="logout">Logout</a>
+                                                </li>
+                                            </form>
 
-                                                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                                                                @csrf
-                                                                <li class="menu-item">
-                                                                    <a href="#" id="logout">Logout</a>
-                                                                </li>
-                                                            </form>
-
-                                                        </ul>
-                                                            </li>
+                                        </ul>
+                                            </li>
                                     @endif
                                 @else
                                 <li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
